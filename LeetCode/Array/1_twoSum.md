@@ -22,3 +22,16 @@
 
 2. 利用hashmap存储已经遍历的数，空间换时间：
 
+class Solution {
+public:
+  vector<int> twoSum(vector<int>& nums, int target) {
+    unordered_map<int, int> valueToindex;
+    for (int i= 0; i < nums.size(); ++i) {
+      auto it = valueToindex.find(target - nums[i]);
+      if (it != valueToindex.end()) {
+         return {it->second, i};
+      }
+    return {};
+  }
+};
+
